@@ -640,4 +640,30 @@ body .good-inf .good-inf__ctn .good-inf__ctn--list .good__price--wrap {
   padding: 5px 10px;
   border-left: 1px solid rgba(54, 54, 54, 0.4117647059);
   border-right: 1px solid rgba(54, 54, 54, 0.4117647059);
+}
+@media screen and (max-width: 960px) {
+  body {
+    font-size: 16px;
+  }
+  body .wrapper .header .header__item .container .search {
+    margin-right: 10px;
+  }
+  body .wrapper .main .container .category .category__list .category__item .category__link {
+    font-size: 14px;
+  }
+  body .wrapper .main .container .category-ctn__list .category-ctn__item {
+    flex: 48%;
+    align-content: space-between;
+  }
+  body .wrapper .main .container .category-ctn__list .category-ctn__item .category-ctn__img--wrap .category-ctn__img {
+    height: 150px;
+  }
+  body .wrapper .main .container .category-ctn__list .category-ctn__item .category-ctn__price {
+    width: 100%;
+    font-size: 13px;
+  }
+  body .wrapper .main .container .category-ctn__list .category-ctn__item .category-ctn__buy button {
+    padding: 13px 9px;
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=style.css.map */
