@@ -6,6 +6,7 @@
  * @param {string} id - Массив для добавления нескольких id к созданному элементу.
  * @returns {HTMLElement} - Созданный элемент.
  */
+// Функция ниже упращает написание функции для создания элемента
 function CreateElement(parent, type, classes = [], innerHTML = null, id = '') {
     const element = document.createElement(type);
     element.classList.add(...classes);
@@ -14,6 +15,7 @@ function CreateElement(parent, type, classes = [], innerHTML = null, id = '') {
     parent.appendChild(element);
     return element;
 }
+// строка это функция, которая открывает корзину на сайте
 function backetBtn() {
     const orders = document.querySelector('.orders');
     const ordersBg = document.querySelector('.orders-bg');
@@ -35,7 +37,6 @@ function backetBtn() {
                 document.title == 'WebShop'
                     ? order.imgPath
                     : `../${order.imgPath}`;
-            // console.log(JSON.parse(obj));
             const orderItem = CreateElement(
                 ordersList,
                 'div',
@@ -49,8 +50,8 @@ function backetBtn() {
             ]);
             const orderImg = CreateElement(orderImgWrap, 'img', ['order__img']);
             orderImg.setAttribute('src', imgPathChng);
-            // console.log(typeof order.imgPath);
             orderImg.setAttribute('alt', order.category);
+            // это функция, которая открывает информацию про товар в корзине товаров. Нужно нажать на картинку товара
             orderImg.addEventListener('click', function () {
                 const goodInf = document.querySelector('.good-inf');
                 const goodInfCtn = document.querySelector('.good-inf__ctn');
@@ -119,6 +120,7 @@ function backetBtn() {
                     ['good__desc'],
                     `${order.desc}`
                 );
+                // это кнопка, которая закрывает корзину товаров
                 document
                     .querySelector('.good-inf-close')
                     .addEventListener('click', function (e) {
@@ -167,12 +169,14 @@ function backetBtn() {
                 ['order__btn'],
                 'Видалити'
             );
+            // это кнопка удаления товара из корзины
             orderBtn.addEventListener('click', function (e) {
                 localStorage.removeItem(orderItem.getAttribute('localId'));
                 orderItem.remove();
             });
         }
     }
+    // это кнопка, которая закрвает информацию о товаре, которая открываеться в корзине товаров. Чтоб открыть её нужно нажать на картинку товара
     document
         .querySelector('.goods-close')
         .addEventListener('click', function (e) {
@@ -182,6 +186,8 @@ function backetBtn() {
             }, 800);
         });
 }
+// строка 189 это объект(тип данных), в которм хранится вся информация про товар
+// так же, здесь можно вписать любой другой товар и он добавиться в сетку товаров, создавая новую ячейку на сайте
 const productChar = {
     BMS: {
         1: {
@@ -346,16 +352,15 @@ context.closePath();
 context.stroke();
 const basket = document.querySelector('.basket').querySelector('button');
 const loclStorlnth = CreateElement(basket, 'span', ['basket__num']);
-setInterval(() => {
-    loclStorlnth.innerHTML = localStorage.length;
-}, 100);
+// setInterval(() => {
+//     loclStorlnth.innerHTML = localStorage.length;
+// }, 100);
 if (document.title === 'WebShop') {
     const categoryCtnList = document.querySelector('.category-ctn__list');
     const categoryCtnItems = [];
     const categoryCtnImgWraps = [];
     for (const category of Object.keys(productChar)) {
         for (const product of Object.keys(productChar[category])) {
-            // console.log(productChar[category][product]);
             const products = productChar[category][product];
             const productCategory = products.category;
             const productName = products.name;
@@ -431,6 +436,7 @@ if (document.title === 'WebShop') {
                 `${productId}`
             );
             buyBtn.setAttribute('src', `${productId}`);
+            // 433 строка клик на кнопку КУПИТЬ а Главном меню
             buyBtn.addEventListener('click', () =>
                 order(
                     productName,
@@ -442,10 +448,8 @@ if (document.title === 'WebShop') {
             );
         }
     }
-    // console.log(categoryCtnItems);
-    // tab товаров и их категорий
     const catItem = document.querySelectorAll('.category__link');
-    // console.log(catItem);
+    // это фильтрация товаров, их категорий
     catItem.forEach((item) => {
         item.addEventListener('click', function (e) {
             e.preventDefault();
@@ -466,9 +470,9 @@ if (document.title === 'WebShop') {
             });
         });
     });
-    //
     const productInfo = document.querySelector('.product__info');
     const productCtn = document.querySelector('.product__ctn');
+    // Это функция, которая собирает информацию и передаёт её в другую функцию, которая уже отображает контент за счёт готовой информации. Срабатывает она при клике на картинку товара в Главном меню
     function productShow(item) {
         productInfo.classList.add('show');
         for (const category of Object.keys(productChar)) {
@@ -502,12 +506,15 @@ if (document.title === 'WebShop') {
             }
         }
     }
+    // это нажатие на картинку товара в Главном меню, отоброжение про товар
     categoryCtnImgWraps.forEach((item) => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
+            // это функция, которая запускается
             productShow(item);
         });
     });
+    // функция, которая выводит на экран информацию про товар. Работает на Главной странице при нажатии на картинку товара
     function productFill(ctnItem, img, title, price, id, desc, e) {
         const productImgWrap = CreateElement(ctnItem, 'div', [
             'product__img--wrap',
@@ -552,6 +559,7 @@ if (document.title === 'WebShop') {
             'Короткий опис'
         );
         const shortDescP = CreateElement(productShortDesc, 'p', [], desc);
+        // Эта функция закрывает информацию про товар, которую вывели с главной страници, при нажатии на любое место за пределами окна
         productInfo.addEventListener('click', function (e) {
             if (!productCtn.contains(e.target)) {
                 do {
@@ -563,6 +571,7 @@ if (document.title === 'WebShop') {
             }
         });
     }
+    // Функция, которая визуально даёт возможность купить товар. Выводит окно с элементами покупки товара
     function order(name, price, img, id, desc) {
         const orderItem = document.querySelector('.order');
         orderItem.style.display = 'block';
@@ -574,18 +583,24 @@ if (document.title === 'WebShop') {
         const curr = document.querySelector('.curr');
         const more = document.querySelector('.more');
         less.disabled = true;
-        less.addEventListener('click', function () {
+        // функция для уменьшения кол-во товаров
+        function lessClickHandler() {
             curr.innerHTML = parseInt(curr.innerHTML) - 1;
             updateTotalPrice();
             if (parseInt(curr.innerHTML) === 1) {
                 less.disabled = true;
             }
-        });
-        more.addEventListener('click', function () {
+        }
+        // функция для увеличения кол-во товаров
+        function moreClickHandler() {
             curr.innerHTML = parseInt(curr.innerHTML) + 1;
             updateTotalPrice();
             less.disabled = false;
-        });
+        }
+        // это кнопка уменьшения кол-во товаров
+        less.addEventListener('click', lessClickHandler);
+        // это кнопка увеличения кол-во товаров
+        more.addEventListener('click', moreClickHandler);
         // В этой функции я также сделал возможность для "Скидки" и "Стоимость доставки"
         let orderDeliveryInn = 0;
         let orderDiscountInn = 0;
@@ -607,6 +622,7 @@ if (document.title === 'WebShop') {
         orderTotalInn = price;
         orderTotalInn += orderDeliveryInn;
         orderTotalInn -= orderDiscountInn;
+        // эта функция обновляет цену в зависимости от кол-во товаров выбраных при оформлении заказа
         function updateTotalPrice() {
             let current = parseInt(curr.innerHTML);
             orderTotalInn = price * current;
@@ -635,6 +651,7 @@ if (document.title === 'WebShop') {
         orderTotal.innerHTML =
             orderTotalInn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') +
             ' ₴';
+        // кнопка для отправки заказа в корзину заказов
         document
             .querySelector('.order__submit')
             .querySelector('button')
@@ -702,6 +719,7 @@ if (document.title === 'WebShop') {
                             date.getMonth() + 1
                         }.${date.getFullYear()}`,
                     };
+                    // эта функция генерирует уникальный ID для заказа
                     function generateUniqueId() {
                         let counter = localStorage.length + 1;
                         return counter;
@@ -711,30 +729,35 @@ if (document.title === 'WebShop') {
                     location.reload();
                 }
             });
+        // эта кнопка закрывает окно для оформления заказа
         document
             .querySelector('.order-close')
             .addEventListener('click', function (e) {
+                less.removeEventListener('click', lessClickHandler);
+                more.removeEventListener('click', moreClickHandler);
                 orderBgItem.style.right = '-25%';
+                curr.innerHTML = 1;
                 setTimeout(() => {
                     orderItem.style.display = 'none';
                 }, 800);
             });
     }
-    // console.log(localStorage);
     let counter = parseInt(localStorage.getItem('counter')) || 0;
+    // снова генерация уникального ID
     function generateUniqueId() {
         counter++;
         localStorage.setItem('counter', counter.toString());
         return counter;
     }
-    // console.log(counter);
 }
+// кнопка для открытия корзины
 document
     .querySelector('.basket')
     .querySelector('button')
     .addEventListener('click', function () {
         backetBtn();
     });
+// кнопка, которая открывает логин
 document
     .querySelector('.sign-up')
     .querySelector('a')
@@ -744,12 +767,14 @@ document
             document.querySelector('.login-bg').style.right = '0';
         }, 100);
     });
+// кнопка, которая закрывает логин
 document.querySelector('.login-close').addEventListener('click', function () {
     document.querySelector('.login-bg').style.right = '-25%';
     setTimeout(() => {
         document.querySelector('.login').style.display = 'none';
     }, 800);
 });
+// это кнопка для перехода с логине в регистрацию
 document
     .getElementById('loginToSignup')
     .addEventListener('click', function (e) {
@@ -763,6 +788,7 @@ document
             document.querySelector('.signup-bg').style.right = '0';
         }, 900);
     });
+// это кнопка, которая закрывает регистрацию
 document.querySelector('.signup-close').addEventListener('click', function () {
     document.querySelector('.signup-bg').style.right = '-25%';
     setTimeout(() => {
