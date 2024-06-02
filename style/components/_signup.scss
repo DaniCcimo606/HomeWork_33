@@ -1,0 +1,84 @@
+.signup {
+    .signup-bg {
+        .signup__title {
+            h2 {
+                position: relative;
+                display: flex;
+                padding: 20px 0;
+                border-bottom: 1px solid #2222221a;
+                font-size: 27px;
+                .signup-close {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        }
+        .signup__fields {
+            label {
+                display: inline-block;
+                margin-bottom: 5px;
+                font-size: 13px;
+            }
+            input {
+                display: block;
+                width: 100%;
+                padding: 10px 15px;
+                border: 1px solid #e2f2f7;
+                transition: all 0.5s ease;
+                background-color: #f8f8f8;
+                &:focus {
+                    border-color: #000;
+                }
+            }
+            .signup__first-name,
+            .signup__last-name,
+            .signup__email,
+            .signup__pass,
+            .signup__confirm-pass {
+                padding: 5px 0;
+            }
+            .signup__first-name {
+            }
+            .signup__last-name {
+            }
+            .signup__email {
+            }
+            .signup__pass {
+            }
+            .signup__confirm-pass {
+            }
+        }
+        .signup__btn {
+            button {
+                width: 100%;
+                margin: 10px 0;
+                padding: 13px 23px;
+                border: 1px solid black;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fff;
+                background-color: #000;
+                transition: 0.5s;
+                cursor: pointer;
+                &:hover {
+                    border: 1px solid rgb(0, 174, 255);
+                    color: #000;
+                    background-color: #fff;
+                }
+            }
+        }
+        .signup__login {
+            margin: 15px 0;
+            text-align: center;
+            a {
+                font-size: 15px;
+                transition: 0.5s;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

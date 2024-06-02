@@ -1,0 +1,52 @@
+body {
+    .wrapper {
+        .blog-page {
+            font-size: 16px;
+            .container {
+                .main__item {
+                    .main__title {
+                        margin: 50px 0 30px;
+                        h1 {
+                            font-size: 35px;
+                        }
+                    }
+                    .main__desc {
+                        p {
+                            line-height: 1.5;
+                            &:nth-of-type(1) {
+                                width: 75%;
+                            }
+                            &:last-child {
+                                margin: 15px 0 40px;
+                            }
+                        }
+                        h2 {
+                            &:nth-of-type(1) {
+                                margin: 20px 0 15px;
+                                font-size: 25px;
+                            }
+                        }
+                        img {
+                            margin: 20px 0;
+                            width: 50%;
+                        }
+                        .wrapped-content {
+                            &::after {
+                                @include float_fix;
+                            }
+                            img {
+                                &:nth-of-type(1) {
+                                    margin-right: 20px;
+                                    float: left;
+                                }
+                            }
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -9,6 +9,7 @@
     background-color: #000;
 }
 body {
+    font-size: 18px;
     font-family: 'Montserrat', sans-serif;
 }
 .container {
@@ -43,4 +44,9 @@ body {
             transform: translate(-50%, -50%) rotate(-135deg);
         }
     }
+}
+@mixin float_fix() {
+    content: '';
+    clear: both;
+    display: block;
 }

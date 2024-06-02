@@ -1,0 +1,148 @@
+body {
+    .login {
+        .login-bg {
+            .login__title {
+                h2 {
+                    position: relative;
+                    padding: 20px 0;
+                    border-bottom: 1px solid #2222221a;
+                    font-size: 27px;
+                    .login-close {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+            }
+            .login__fields {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-top: 10px;
+                .login__email,
+                .login__pass {
+                    padding: 5px 0;
+                    input {
+                        display: block;
+                        width: 100%;
+                        padding: 10px 15px;
+                        border: 1px solid #e2f2f7;
+                        transition: all 0.5s ease;
+                        background-color: #f8f8f8;
+                        &:focus {
+                            border-color: #000;
+                        }
+                    }
+                    &::before {
+                        content: 'ctnctn';
+                        display: block;
+                        margin-bottom: 5px;
+                        font-size: 13px;
+                    }
+                }
+                .login__remember,
+                .login__forgot-pass {
+                    margin: 15px 0 20px;
+                }
+                .login__email {
+                    flex: 100%;
+                    input {
+                    }
+                    &::before {
+                        content: 'Email';
+                    }
+                }
+                .login__pass {
+                    flex: 100%;
+                    input {
+                    }
+                    &::before {
+                        content: 'Пароль';
+                    }
+                }
+                .login__remember {
+                    input {
+                    }
+                    .label {
+                        margin-left: 5px;
+                    }
+                }
+                .login__forgot-pass {
+                    a {
+                        opacity: 0.5;
+                        transition: 0.5s;
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            .login__social {
+                .social__title {
+                    text-align: center;
+                    span {
+                        font-size: 15px;
+                        color: #22222259;
+                    }
+                }
+                .social__btns {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 15px 0;
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 49%;
+                        padding: 12px 10px;
+                        border: 1px solid #2222221a;
+                        font-size: 14px;
+                        transition: 0.5s;
+                        svg {
+                            margin-right: 8px;
+                        }
+                        &:hover {
+                            background-color: #f4f4f4;
+                        }
+                    }
+                    #loginFacebook {
+                    }
+                    #loginGoogle {
+                    }
+                }
+            }
+            .login__btn {
+                button {
+                    width: 100%;
+                    padding: 12px 22px;
+                    border: 1px solid black;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    background-color: #000;
+                    color: #fff;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    &:hover {
+                        border: 1px solid rgb(0, 174, 255);
+                        color: #000;
+                        background-color: #fff;
+                    }
+                }
+            }
+            .login__to-signup {
+                font-size: 15px;
+                display: flex;
+                justify-content: center;
+                margin: 15px 0;
+                a {
+                    margin-left: 5px;
+                    transition: 0.5s;
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+}

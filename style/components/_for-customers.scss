@@ -1,0 +1,102 @@
+body {
+    .wrapper {
+        .for-customers {
+            font-size: 16px;
+            .container {
+                .main__item {
+                    .wrapped-content {
+                        ul {
+                            li {
+                                position: relative;
+                                padding-left: 35px;
+                                margin-left: 15px;
+                                &::before {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    content: '\2714';
+                                    padding: 0 5px;
+                                    color: white;
+                                    background-color: black;
+                                }
+                            }
+                        }
+                    }
+                    h2 {
+                        margin: 50px 0 30px;
+                        font-size: 35px;
+                        font-weight: 600;
+                    }
+                    h3 {
+                        margin: 20px 0;
+                        font-size: 21px;
+                        font-weight: 600;
+                    }
+                    p,
+                    li {
+                        margin: 12px 0;
+                        line-height: 1.5;
+                    }
+                    .about {
+                        .about__title {
+                            h2 {
+                            }
+                        }
+                        .about__desc {
+                            .wrapped-content {
+                                &:nth-of-type(1) {
+                                    h3 {
+                                    }
+                                    p {
+                                    }
+                                    ul {
+                                        li {
+                                        }
+                                    }
+                                }
+                                &:nth-of-type(2) {
+                                    h3 {
+                                    }
+                                    p {
+                                    }
+                                    ul {
+                                        li {
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .del-pay {
+                        .del-pay__title {
+                            h2 {
+                            }
+                        }
+                        .del-pay__desc {
+                            &:nth-of-type(1) {
+                                h3 {
+                                }
+                                p {
+                                }
+                                ul {
+                                    li {
+                                    }
+                                }
+                            }
+                            &:nth-of-type(2) {
+                                h3 {
+                                }
+                                p {
+                                }
+                                ul {
+                                    li {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
