@@ -352,9 +352,9 @@ context.closePath();
 context.stroke();
 const basket = document.querySelector('.basket').querySelector('button');
 const loclStorlnth = CreateElement(basket, 'span', ['basket__num']);
-// setInterval(() => {
-//     loclStorlnth.innerHTML = localStorage.length;
-// }, 100);
+setInterval(() => {
+    loclStorlnth.innerHTML = localStorage.length;
+}, 100);
 if (document.title === 'WebShop') {
     const categoryCtnList = document.querySelector('.category-ctn__list');
     const categoryCtnItems = [];
@@ -795,5 +795,9 @@ document.querySelector('.signup-close').addEventListener('click', function () {
         document.querySelector('.signup').style.display = 'none';
     }, 800);
 });
-
+const contactSocList = document.querySelector('.contact__socials--list');
+contactSocList.innerHTML = '+38 (091) 002 50 56';
+contactSocList.style.color = 'white';
+const workTime = document.querySelector('.work-time');
+workTime.style.fontSize = '30px';
 // localStorage.clear();

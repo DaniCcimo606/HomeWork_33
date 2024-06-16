@@ -138,6 +138,7 @@ body {
                                     padding-right: 0;
                                 }
                                 .nav__libk {
+                                    font-size: 25px;
                                     text-transform: uppercase;
                                     color: #000;
                                 }
@@ -146,7 +147,7 @@ body {
                     }
                     .search {
                         flex: 5%;
-                        display: flex;
+                        display: none;
                         justify-content: center;
                         align-items: center;
                         button {

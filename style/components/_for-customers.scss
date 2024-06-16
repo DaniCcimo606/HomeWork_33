@@ -4,6 +4,9 @@ body {
             font-size: 16px;
             .container {
                 .main__item {
+                    p {
+                        font-size: 20px;
+                    }
                     .wrapped-content {
                         ul {
                             li {
@@ -29,13 +32,16 @@ body {
                     }
                     h3 {
                         margin: 20px 0;
-                        font-size: 21px;
+                        font-size: 27px;
                         font-weight: 600;
                     }
                     p,
                     li {
                         margin: 12px 0;
                         line-height: 1.5;
+                    }
+                    li {
+                        font-size: 20px;
                     }
                     .about {
                         .about__title {
